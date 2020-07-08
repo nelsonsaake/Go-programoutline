@@ -1,0 +1,54 @@
+{{define "content"}}
+<header>
+    New Outline: Give Requirement
+</header>
+<div class="container">
+    <div class="page">
+        <div class="page-pad">
+            <div class="">
+                <form action="/outline" method="post" role="form">
+                    <fieldset>
+                        <legend>Number of Weeks & Interval</legend>
+                        <div class="form-group">
+                            <label for="startDate">Start date: </label>
+                            <input type="date" name="startDate" id="startDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endDate">End date: </label>
+                            <input type="date" name="endDate" id="endDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dysBtwnEvents">How many days between events? </label>
+                            <input type="number" name="dysBtwnEvents" id="dysBtwnEvents" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="interval"></label>
+                            <input type="submit" value="Next">
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="pad">
+                <p style="font-size: 13pt; font-style: italic;">
+                    Feel free to experiment to your satisfaction. You can't break anything here. Any mistake you make you can delete or edit.
+                </p>
+                <hr>
+                <p>
+                    Start date is the first day of the event.
+                </p>
+                <p>
+                    End date: after this day, there will no more events. This is not must not be the date of the last  event. 
+                </p>
+                <p>
+                    Days between events, how many days will pass before the next event will occur. Example: if the next event is one week from the last. This will be <code style="font-size: 13pt;">7</code>.
+                </p>
+                <hr>
+                <p>
+                    Based on the information provided, the program will generates a series of dates for your programs. It is full editable, so don't worry if you make any mistakes.
+                </p>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}

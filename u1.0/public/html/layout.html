@@ -1,0 +1,45 @@
+{{define "layout"}}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Program Outline</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bsjq/bootstrap.min.css">
+    <script src="/bsjq/jquery.min.js"></script>
+    <script src="/bsjq/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/utils.css">
+    <link rel="stylesheet" href="/css/coloring.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+</head>
+
+<body>
+    {{template "nav"}}
+    {{template "content" .}}
+    <footer class="footer">
+        Email: nelsonsaakekofi@gmal.com
+    </footer>
+</body>
+</html>
+{{end}}
+
+{{define "nav"}}
+<div class="nav-area">
+    <a href="/">Home</a> | 
+    <a href="/outlineReq">Create a new outline</a> | 
+    <a href="/events/all">All Events</a>| 
+    <a href="/eventseries/all">All Outlines</a>
+</div>
+{{end}}
+
+{{define "nav---"}}
+<ul class="navbar navbar-inverse nav">
+    <li><a href="/">Home</a></li>
+    <li><a href="/outlineReq">Create a new outline</a></li> 
+    <li><a href="/events/all">All Events</a></li> 
+    <li><a href="/eventseries/all">All Outlines</a></li> 
+</ul>
+{{end}}
+<!-- tailwind -->

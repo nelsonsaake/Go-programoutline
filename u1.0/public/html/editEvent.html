@@ -1,0 +1,76 @@
+{{define "content"}}
+<header>
+    Edit Event : {{.Event.Subject}}
+</header>
+<div class="container">
+    <div class="page">
+        <div class="page-pad">
+            <div class="">
+                <form action="/events/update/{{.Event.Id}}" method="post" role="form">
+                    <fieldset>
+                        <legend> Edit </legend>
+                        <div class="form-group">
+                            <label for=""> Subject: </label>
+                            <input type="text" name="subject" id="subject" value="{{.Event.Subject}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for=""> Date: </label>
+                            <input type="date" name="date" id="date" value='{{.Event.Time.Format "2006-01-02"}}' >
+                        </div>
+                        <div class="form-group">
+                            <label for=""> Time: </label>
+                            <input type="time" name="time" id="time" value='{{.Event.Time.Format "15:04"}}'>
+                        </div>
+                        <div class="form-group">
+                            <label for="venue"> Venue: </label>
+                            <input type="text" name="venue" id="venue" value="{{.Event.Venue}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="agenda"> Agenda: </label>
+                            <textarea name="agenda" id="agenda" value="{{.Event.Agenda}}"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="salutation"> Salutation: </label>
+                            <textarea name="salutation" id="salutation" value="{{.Event.Salutation}}"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="item13">  Refreshment: </label>
+                            <select name="item13" id="item13">
+                                <option value="true"> assured </option>
+                                <option value="false"> no refreshment </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for=""> Signed: </label>
+                            <input type="text" name="signed" id="signed" value="{{.Event.Signed}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="socialgroup"> Social group: </label>
+                            <input type="text" name="socialgroup" id="socialgroup" placeholder="eg. Shepherding Ministry, CCR, PAX Romana, UMaT local ..." value="{{.Event.SocialGroup}}">
+                        </div>
+                        <div class="pad">
+                            <hr>
+                        </div>
+                        <div id="eventseries">
+                            {{template "eventseries" .AllEventseries}}
+                        </div>
+                        <div class="pad">
+                            <hr>
+                        </div>
+                        <div class="form-group">
+                            <label for="interval"></label>
+                            <input type="submit" value="Update">
+                        </div>
+                    </fieldset>
+                </form>
+                <form action="/events/all" method="get" role="form">
+                    <div class="form-group">
+                        <label for="interval"></label>
+                        <input type="submit" value="Cancel">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}

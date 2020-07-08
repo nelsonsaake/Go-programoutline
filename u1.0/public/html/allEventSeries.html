@@ -1,0 +1,47 @@
+{{define "content"}}
+<header>
+    All Program Outlines
+</header>
+<div class="container">
+    <div class="page">
+        <div class="page-pad">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>DETAILS</th>
+                        </tr>
+                    </thead>
+                    {{range $key, $value := .}}
+                    <tr class="">
+                        <td>{{$value.Name}}</td>
+                        <td><a href="/eventseries/events/{{$value.Id}}">View</a></td>
+                    </tr>
+                    {{end}}
+                </table>
+            </div>
+            <div class="">
+                <form action="" method="post" role="form">
+                    <fieldset>
+                        <legend> Add New Outline Name </legend>
+                        <div id="eventseries">
+                            {{template "eventseries" .}}
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="pad">
+                <hr>
+                <p>
+                    Event series: is the name of an outline.
+                </p>
+                <p>
+                    Program outline: is a group of events. Which has a name, that is, the Event series.
+                </p>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}

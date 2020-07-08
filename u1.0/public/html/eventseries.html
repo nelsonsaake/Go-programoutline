@@ -1,0 +1,54 @@
+{{define "eventseries-select"}}
+<div class="form-group">
+    <label for=""> Event-Series: </label>
+    <select name="eventseries" id="eventseries">
+        {{range $key, $value := .}}
+        <option value="{{$value.Id}}"> {{ $value.Name}} </option>
+        {{end}}
+    </select>
+</div>
+{{end}}
+
+{{define "eventseries-add"}}
+<div class="form-group">
+    <label for=""> New Event-Series: </label>
+    <input type="text" name="neweventseries" id="neweventseries"
+        placeholder="eg. General meetings or Weekly Bible Studies ...">
+    <input type="button" name="add" id="add" value="Add" onclick="addNewEvent()">
+</div>
+<script>
+    function addNewEvent() {
+    var requestURL = "/eventseries";
+    var requestMethod = "POST";
+    var requestHeader = {header: "Content-type", value: "application/x-www-form-urlencoded"};
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open(requestMethod, requestURL, true);
+    xhttp.setRequestHeader(requestHeader.header, requestHeader.value);
+
+    xhttp.onreadystatechange = function () {
+        console.log(xhttp.responseText);
+        document.getElementById("eventseries").innerHTML = xhttp.responseText;
+    }
+
+    var data = "name=" + document.getElementById("neweventseries").value;
+    xhttp.send(data);
+}
+</script>
+{{end}}
+
+{{define "eventseries"}}
+{{template "eventseries-select" .}}
+{{template "eventseries-add"}}
+{{end}}
+
+{{define "eventseries-select-with-default"}}
+<div class="form-group">
+    <label for=""> Event-Series: </label>
+    <select name="eventseries" id="eventseries">
+        {{range $key, $value := .}}
+        <option value="{{$value.Id}}"> {{ $value.Name}} </option>
+        {{end}}
+    </select>
+</div>
+{{end}}

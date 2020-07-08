@@ -1,0 +1,25 @@
+body{
+    background-color: white;
+}
+
+.frontpage-left, header{
+    background-color: darkslategrey;
+    color: silver;
+}
+
+a{
+    background-color: rgba(250,250,250, 0.2);
+}
+
+.page, fieldset, legend, .footer{
+    border-color: silver;
+}
+
+footer, nav{
+    background-color: rgba(250,250,250, 0.8);
+}
+
+thead{
+    background-color: rgba(245,245,245,1);
+    color: rgb(78,78,78);
+}

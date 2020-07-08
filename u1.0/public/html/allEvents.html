@@ -1,0 +1,29 @@
+{{define "content"}}
+<header>
+    All Events 
+</header>
+<div class="container">
+    <div class="page">
+        <div class="page-pad">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="">
+                        <tr>
+                            <th>SUBJECT</th>
+                            <th>TIME</th>
+                            <th>DETAILS</th>
+                        </tr>
+                    </thead>
+                {{range $key, $value := .}}
+                    <tr class="">
+                        <td>{{$value.Subject}}</td>
+                        <td>{{$value.Time.Format "Mon Jan 02, 2006 --- 03:04 PM"}}</td>
+                        <td><a href="/events/edit/{{$value.Id}}">Edit</a></td>
+                    </tr>
+                    {{end}}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}
